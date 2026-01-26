@@ -47,7 +47,8 @@ p {
 /* Style the tab */
 .tab {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; 
+  align-items: center;
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
