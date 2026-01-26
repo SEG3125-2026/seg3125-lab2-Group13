@@ -47,8 +47,9 @@ p {
 /* Style the tab */
 .tab {
   display: flex;
-  justify-content: space-between; 
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 60px;
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
@@ -56,9 +57,17 @@ p {
 
 /* Style for the new logo container */
 .tab-logo {
-  padding: 0 20px; /* Gives the logo some breathing room on the left */
   display: flex;
   align-items: center;
+  padding-left: 20px;
+}
+.tab-logo img {
+  height: 80%;
+  width: auto;
+}
+
+.tab-links-group {
+  display: flex;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -67,8 +76,10 @@ p {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 0 16px;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 /* Change background color of buttons on hover */
