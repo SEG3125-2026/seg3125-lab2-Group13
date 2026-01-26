@@ -54,6 +54,13 @@ p {
   background-color: #f1f1f1;
 }
 
+/* Style for the new logo container */
+.tab-logo {
+  padding: 0 20px; /* Gives the logo some breathing room on the left */
+  display: flex;
+  align-items: center;
+}
+
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
