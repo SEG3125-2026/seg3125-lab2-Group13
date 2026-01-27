@@ -37,20 +37,30 @@ function getUserPreferences() {
 function filterAndSortProducts(allProducts, prefs) {
   const safeList = Array.isArray(allProducts) ? allProducts.slice() : [];
 
-  let filtered = safeList.filter((p) => {
+  const filtered = safeList.filter((p) => {
     if (!p || typeof p !== "object") return false;
 
+    // Vegetarian: hide meats/fish (your dataset uses vegetarian boolean)
     if (prefs.vegetarian && p.vegetarian !== true) return false;
 
-    // Gluten intolerance: user does NOT want wheat -> in current data, treat glutenFree === true as safe
-    if (prefs.glutenIntolerance && p.glutenFree !== true) return false;
+    // Gluten intolerance: avoid wheat products (prefer containsWheat if exists)
+    if (prefs.glutenIntolerance) {
+      const hasWheatField = Object.prototype.hasOwnProperty.call(p, "containsWheat");
+      if (hasWheatField) {
+        if (p.containsWheat === true) return false; // contains wheat -> hide
+      } else {
+        // fallback for older datasets
+        if (p.glutenFree !== true) return false;
+      }
+    }
 
-    // Organic preference: only filter if the field exists on the product object
+    // Organic preference: only filter if the field exists
     const hasOrganicField = Object.prototype.hasOwnProperty.call(p, "organic");
     if (hasOrganicField) {
       if (prefs.organicPref === "organic" && p.organic !== true) return false;
       if (prefs.organicPref === "nonOrganic" && p.organic !== false) return false;
     }
+
     return true;
   });
 
@@ -67,6 +77,7 @@ function filterAndSortProducts(allProducts, prefs) {
 
   return filtered;
 }
+
 
 
 /** Render products into #displayProduct (checkbox list with price) */

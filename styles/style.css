@@ -1,112 +1,213 @@
-/* Page background */
-html, body {
-  height: 100%;
+:root{
+  --maroon: #8b0017;
+  --maroon2:#6f0014;
+  --line: #cfcfcf;
+  --text: #111;
+  --muted:#444;
+  --bg: #f6f6f6;
+  --card:#ffffff;
 }
 
-body {
-  margin: 0;
+html, body { height: 100%; }
+
+body{
+  margin:0;
+  color: var(--text);
   background:
-    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(180deg, #faf8f6 0%, #f2f0ef 100%);
-  background-size: 18px 18px, auto;
+    radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  font-family: Arial, sans-serif;
 }
 
-/* Typography */ 
-h1 {
-  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
-  font-size: 60px;
+.lab-hero{
+  margin: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--maroon) 0%, var(--maroon2) 100%);
+  padding: 28px 16px 24px 16px;
   text-align: center;
-  margin: 0 0 5px 0;
-  color: white;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-p {
-  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
-  font-size: 16px;
-  text-align: center;
+.lab-hero h1{
+  margin: 0 0 8px 0;
+  color: #fff;
+  font-size: 72px;
+  letter-spacing: 2px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.lab-hero p{
   margin: 0;
-  color: black;
+  color: rgba(255,255,255,0.92);
+  font-size: 22px;
+  font-weight: 600;
 }
 
-/* Banner */
-.banner {
-  background-color: #8F001A;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.banner p {
-  font-size: 18px;
-  color: white;
-}
-
-/*********************************************************/
-
-/* Style the tab */
-.tab {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  height: 60px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style for the new logo container */
-.tab-logo {
+.brandbar{
+  margin: 0 0 10px 0;
+  background: rgba(255,255,255,0.75);
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  justify-content: space-between;
 }
-.tab-logo img {
-  height: 80%;
+
+.brand-logo{
+  height: 44px;
   width: auto;
 }
 
-.tab-links-group {
-  display: flex;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0 16px;
-  transition: 0.3s;
+.tab{
   display: flex;
   align-items: center;
+  gap: 16px;
 }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
+.tablinks{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.15s ease;
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
+.tablinks:hover{
+  background: rgba(0,0,0,0.05);
 }
 
-/* Style the tab content */
-.tabcontent {
+.tablinks.active{
+  background: rgba(139,0,23,0.12);
+}
+
+.tab-icon{
+  width: 28px;
+  height: 28px;
+}
+
+.tab-text{
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  font-size: 16px;
+  color: var(--text);
 }
 
-/*********************************************************/
-
-/* Signature */
-#signature {
-  margin: 30px 20px 20px 20px;
+#signature{
+  margin: 10px 18px 0 18px;
   text-align: right;
-  color: black;
   font-style: italic;
-  font-size: 75%;
+  font-weight: 600;
+  color: #222;
+  font-size: 15px;
+}
+
+.tabcontent{
+  display: none;
+  margin: 16px 18px 22px 18px;
+  padding: 18px 18px 22px 18px;
+  background: rgba(255,255,255,0.75);
+  border: 2px solid var(--line);
+}
+
+h2{
+  margin: 0 0 10px 0;
+  font-size: 28px;
+}
+
+p{
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+fieldset{
+  border: 2px solid var(--line);
+  padding: 12px 14px 10px 14px;
+  margin: 12px 0;
+  background: rgba(255,255,255,0.65);
+}
+
+legend{
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-row{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 6px;
+  font-size: 18px;
+}
+
+.form-row input[type="checkbox"],
+.form-row input[type="radio"]{
+  transform: scale(1.2);
+}
+
+.actions{
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions button{
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.actions button:hover{
+  background: #a1001d;
+}
+
+.product-list{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,0.65);
+  padding: 10px 12px;
+}
+
+.product-row input[type="checkbox"]{
+  transform: scale(1.2);
+}
+
+.product-row label{
+  font-size: 18px;
+}
+
+.cart-box{
+  border: 2px solid var(--line);
+  background: rgba(255,255,255,0.65);
+  padding: 12px;
+}
+
+.cart-box li{
+  margin: 6px 0;
+  font-size: 18px;
+}
+
+@media (max-width: 720px){
+  .lab-hero h1{ font-size: 52px; }
+  .lab-hero p{ font-size: 18px; }
+  .tab-text{ display: inline; }
 }
