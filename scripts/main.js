@@ -17,3 +17,20 @@ function formatPrice(value) {
   if (!Number.isFinite(num)) return "$0.00";
   return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD" }).format(num);
 }
+
+
+/** Read preferences from Customer form */
+function getUserPreferences() {
+  const vegetarian = !!$("prefVegetarian")?.checked;
+  const glutenIntolerance = !!$("prefGlutenFree")?.checked;
+
+  let organicPref = "any"; // any | organic | nonOrganic
+  const organicRadio = document.querySelector('input[name="prefOrganic"]:checked');
+  if (organicRadio && typeof organicRadio.value === "string") organicPref = organicRadio.value;
+
+  return { vegetarian, glutenIntolerance, organicPref };
+}
+
+
+
+/** Filter products based on preferences and sort by price ascending. */
