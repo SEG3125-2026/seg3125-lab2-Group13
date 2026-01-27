@@ -3,8 +3,8 @@
 <head>
   <meta charset = "UTF-8">
   <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-  <link href = "styles/style.css" rel="stylesheet" type="text/css">
   <title>SEG3125 Lab #2: Group 13</title>
+  <link href = "styles/style.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -87,17 +87,32 @@
 
 
   <!-- PRODUCTS PAGE -->
+    <section id="Products" class="tabcontent">
+    <h2>Products</h2>
+    <p>Choose your items (will be sorted by price once we wire up the JS).</p>
 
+    <div id="displayProduct" class="product-list"></div>
 
-
-
-
+    <div class="actions">
+      <button type="button" onclick="selectedItems(); openInfo(event, 'Cart');">
+        Add selected items to cart →
+      </button>
+    </div>
+  </section>
 
 
 
   <!-- CART PAGE -->
+   <section id="Cart" class="tabcontent">
+    <h2>Cart</h2>
+    <p>Your selected items and total will appear here.</p>
 
+    <div id="displayCart" class="cart-box"></div>
 
+    <div class="actions">
+      <button type="button" onclick="openInfo(event, 'Products')">← Back to Products</button>
+    </div>
+  </section>
 
 
 
