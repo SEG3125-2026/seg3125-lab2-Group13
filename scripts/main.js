@@ -183,7 +183,6 @@ function selectedItems() {
 
   c.appendChild(ul);
 
-  // Use groceries.js getTotalPrice if available, else compute here
   let total = 0;
   if (typeof window.getTotalPrice === "function") {
     total = window.getTotalPrice(chosenNames);
@@ -199,7 +198,7 @@ function selectedItems() {
   c.appendChild(totalLine);
 }
 
-/** Hook up customer form changes -> refresh product list (when user goes to Products) */
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = $("customerForm");
   if (form) {
