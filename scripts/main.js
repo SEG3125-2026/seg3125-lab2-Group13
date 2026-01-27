@@ -1,5 +1,13 @@
 "use strict";
 
+/**
+- Tab navigation (Customer / Products / Cart)
+- Read customer preferences (vegetarian, gluten intolerance, organic preference)
+- Filter + sort products by price (low -> high)
+- Render products with price
+- Build cart summary + total
+*/
+
 function $(id) {
   return document.getElementById(id);
 }
