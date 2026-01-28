@@ -126,16 +126,6 @@ legend{
 .form-row input[type="radio"]{
   transform: scale(1.2);
   accent-color: var(--green);
-  appearance: none; /* Removes the default circle */
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--line);
-  background-color: #fff;
-  border-radius: 0px; /* Forces square corners */
-  display: inline-grid;
-  place-content: center;
-  cursor: pointer;
 }
 
 /* Styles the "check" inside the square when selected */
