@@ -85,7 +85,7 @@ body{
   display: none;
   margin: 16px 18px 22px 18px;
   padding: 18px 18px 22px 18px;
-  background: rgba(53, 91, 91, 0.75);
+  background: var(--bg);
   border: 2px solid var(--line);
 }
 
@@ -105,7 +105,7 @@ fieldset{
   border: 2px solid var(--line);
   padding: 12px 14px 10px 14px;
   margin: 12px 0;
-  background: rgba(53, 91, 91, 0.3);
+  background: var(--bg);
 }
 
 legend{
