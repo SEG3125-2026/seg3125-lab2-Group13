@@ -128,13 +128,11 @@ legend{
   accent-color: var(--green);
 }
 
-/* Styles the "check" inside the square when selected */
 input[type="radio"]:checked {
   background-color: var(--green);
   border-color: var(--green);
 }
 
-/* Optional: Add a little white 'x' or dot inside when checked */
 input[type="radio"]:checked::before {
   content: "";
   width: 8px;
