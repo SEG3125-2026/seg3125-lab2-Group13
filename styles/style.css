@@ -58,7 +58,6 @@ body{
 
 .tablinks.active{
   background: color-mix(in srgb, var(--green), transparent 70%);
-  outline: 2px solid var(--green);
 }
 
 .tab-icon{
