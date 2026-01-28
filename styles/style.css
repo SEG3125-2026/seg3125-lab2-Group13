@@ -57,7 +57,7 @@ body{
 }
 
 .tablinks.active{
-  background: var(--green);
+  background: rgba(131,65,42,0.12);
 }
 
 .tab-icon{
