@@ -182,11 +182,11 @@ input[type="radio"]:checked::before {
 
 .product-row input[type="checkbox"]{
   transform: scale(1.2);
+  accent-color: var(--green);
 }
 
 .product-row label{
   font-size: 18px;
-  accent-color: var(--green);
 }
 
 .cart-box{
