@@ -29,11 +29,40 @@
       </button>
     </nav>
   </header>
+  
+
+
+  <section id="Products" class="tabcontent">
+    <h2>Products</h2>
+    <p>Choose your items (sorted by price from lowest to highest).</p>
+
+    <div id="displayProduct" class="product-list"></div>
+
+    <div class="actions">
+      <button type="button" onclick="selectedItems(); openInfo({ currentTarget: document.getElementById('cartTab') }, 'Cart');">
+        Add selected items to cart →
+      </button>
+    </div>
+  </section>
 
 
 
+  <section id="Cart" class="tabcontent">
+    <h2>Cart</h2>
+    <p>Your selected items and total will appear here.</p>
+
+    <div id="displayCart" class="cart-box"></div>
+
+    <div class="actions">
+      <button type="button"
+        onclick="openInfo({ currentTarget: document.getElementById('productsTab') }, 'Products')">
+        ← Back to Products
+      </button>
+    </div>
+  </section>
 
 
+  
   <section id="Customer" class="tabcontent">
     <h2>Customer Information</h2>
     <p>Please tell us your preferences so we can filter products for you.</p>
@@ -79,42 +108,6 @@
         </button>
       </div>
     </form>
-  </section>
-
-
-
-
-
-  <section id="Products" class="tabcontent">
-    <h2>Products</h2>
-    <p>Choose your items (sorted by price from lowest to highest).</p>
-
-    <div id="displayProduct" class="product-list"></div>
-
-    <div class="actions">
-      <button type="button" onclick="selectedItems(); openInfo({ currentTarget: document.getElementById('cartTab') }, 'Cart');">
-        Add selected items to cart →
-      </button>
-    </div>
-  </section>
-
-
-
-
-
-
-  <section id="Cart" class="tabcontent">
-    <h2>Cart</h2>
-    <p>Your selected items and total will appear here.</p>
-
-    <div id="displayCart" class="cart-box"></div>
-
-    <div class="actions">
-      <button type="button"
-        onclick="openInfo({ currentTarget: document.getElementById('productsTab') }, 'Products')">
-        ← Back to Products
-      </button>
-    </div>
   </section>
 
   <div id="signature">
