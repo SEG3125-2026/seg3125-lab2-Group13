@@ -124,6 +124,7 @@ legend{
 .form-row input[type="checkbox"],
 .form-row input[type="radio"]{
   transform: scale(1.2);
+  accent-color: var(--green);
 }
 
 .actions{
