@@ -3,7 +3,7 @@
   --line: #cfcfcf;
   --text: #111;
   --muted:#444;
-  --bg: #fefde1ff;
+  --bg: #fdf8d3ff;
   --card:#ffffff;
 }
 
@@ -85,7 +85,7 @@ body{
   display: none;
   margin: 16px 18px 22px 18px;
   padding: 18px 18px 22px 18px;
-  background: rgba(58, 95, 94, 0.75);
+  background: rgba(53, 91, 91, 0.75);
   border: 2px solid var(--line);
 }
 
@@ -105,7 +105,7 @@ fieldset{
   border: 2px solid var(--line);
   padding: 12px 14px 10px 14px;
   margin: 12px 0;
-  background: rgba(58, 95, 94, 0.3);
+  background: rgba(53, 91, 91, 0.3);
 }
 
 legend{
@@ -126,6 +126,30 @@ legend{
 .form-row input[type="radio"]{
   transform: scale(1.2);
   accent-color: var(--green);
+  appearance: none; /* Removes the default circle */
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  background-color: #fff;
+  border-radius: 0px; /* Forces square corners */
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+/* Styles the "check" inside the square when selected */
+input[type="radio"]:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+/* Optional: Add a little white 'x' or dot inside when checked */
+input[type="radio"]:checked::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: white;
 }
 
 .actions{
