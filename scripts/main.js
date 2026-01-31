@@ -23,12 +23,14 @@ function formatPrice(value) {
 function getUserPreferences() {
   const vegetarian = !!$("prefVegetarian")?.checked;
   const glutenIntolerance = !!$("prefGlutenFree")?.checked;
+  const lactoseIntolerance = !!$("prefLactoseFree")?.checked;
+  const diabeticFriendly = !!$("prefDiabeticFriendly")?.checked;
 
   let organicPref = "any"; // any | organic | nonOrganic
   const organicRadio = document.querySelector('input[name="prefOrganic"]:checked');
   if (organicRadio && typeof organicRadio.value === "string") organicPref = organicRadio.value;
 
-  return { vegetarian, glutenIntolerance, organicPref };
+  return { vegetarian, glutenIntolerance, lactoseIntolerance, diabeticFriendly, organicPref };
 }
 
 
@@ -52,6 +54,18 @@ function filterAndSortProducts(allProducts, prefs) {
         // fallback for older datasets
         if (p.glutenFree !== true) return false;
       }
+    }
+
+    // Lactose intolerance: avoid dairy products (prefer containsDairy if exists)
+    if (prefs.lactoseIntolerance) {
+      const hasDairyField = Object.prototype.hasOwnProperty.call(p, "lactoseIntolerant");
+      if (hasDairyField && p.lactoseIntolerant !== true) return false;
+    }
+
+    // Diabetic friendly: avoid high-sugar products (prefer highSugar if exists)
+    if (prefs.diabeticFriendly) {
+      const hasHighSugarField = Object.prototype.hasOwnProperty.call(p, "diabetic");
+      if (hasHighSugarField && p.diabetic !== true) return false;
     }
 
     // Organic preference: only filter if the field exists
@@ -101,9 +115,15 @@ function renderProductsList() {
   for (const p of list) {
     const name = String(p.name ?? "Unnamed");
     const priceText = formatPrice(p.price);
+    const imageSrc = p.image; 
 
     const row = document.createElement("div");
     row.className = "product-row";
+
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.alt = name;
+    img.className = "product-image"; 
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -122,6 +142,7 @@ function renderProductsList() {
 
     label.appendChild(document.createTextNode(name + suffix));
 
+    row.appendChild(img);
     row.appendChild(checkbox);
     row.appendChild(label);
 

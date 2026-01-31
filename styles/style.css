@@ -187,8 +187,24 @@ input[type="radio"]:checked::before {
   accent-color: var(--green);
 }
 
+.product-row .quantity-input {
+  width: 60px;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+}
+
 .product-row label{
   font-size: 18px;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .cart-box{
